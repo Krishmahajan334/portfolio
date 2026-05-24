@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { Cpu, Code2, Database, Wrench, Sparkles, Network } from "lucide-react";
 
 interface SkillItem {
@@ -111,7 +111,7 @@ export const Skills: React.FC = () => {
     e.currentTarget.style.setProperty("--y", `${y}px`);
   };
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: {},
     visible: {
       transition: {
@@ -121,7 +121,7 @@ export const Skills: React.FC = () => {
   };
 
   // Blur-to-focus staggering animation curve
-  const cardVariants = {
+  const cardVariants: Variants = {
     hidden: { opacity: 0, y: 35, filter: "blur(6px)" },
     visible: {
       opacity: 1,

@@ -278,7 +278,7 @@ export const Hero: React.FC = () => {
     },
     {
       name: "LinkedIn",
-      href: "https://www.linkedin.com/in/Krishmahajan334",
+      href: "https://in.linkedin.com/in/krish-mahajan-617b50206",
       icon: (
         <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />

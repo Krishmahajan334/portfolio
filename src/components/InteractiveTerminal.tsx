@@ -87,6 +87,8 @@ export const InteractiveTerminal: React.FC = () => {
             <div><span className="text-white font-semibold">skills</span> - Complete engineering tech stack</div>
             <div><span className="text-white font-semibold">current_status</span> - Current college and research focus</div>
             <div><span className="text-white font-semibold">open projects</span> - Scroll down to the flagship projects showcase</div>
+            <div><span className="text-white font-semibold">contacts</span> - Print contact details and scroll to contact form</div>
+            <div><span className="text-white font-semibold">download resume</span> - Trigger download of official resume PDF</div>
             <div><span className="text-white font-semibold">clear</span> - Wipe terminal history logs</div>
           </div>
         );
@@ -141,6 +143,46 @@ export const InteractiveTerminal: React.FC = () => {
             el.scrollIntoView({ behavior: "smooth" });
           }
         }, 150);
+        break;
+      case "contact":
+      case "contacts":
+        response = (
+          <div className="space-y-1 text-gray-300 text-[11px] sm:text-xs text-left">
+            <p className="text-white font-semibold">📬 Contact Coordinates:</p>
+            <p>• <span className="text-brand-cyan">Email:</span> krishmahajan1008@gmail.com</p>
+            <p>• <span className="text-brand-cyan">Linktree:</span> https://linktr.ee/krishmahajan1008</p>
+            <p>• <span className="text-brand-cyan">GitHub:</span> https://github.com/Krishmahajan334</p>
+            <p className="text-emerald-400 font-semibold animate-pulse mt-2">
+              [EXECUTION] Scrolling down to Contact section and minimizing console...
+            </p>
+          </div>
+        );
+        setIsMinimized(true);
+        setTimeout(() => {
+          const el = document.getElementById("contact-form");
+          if (el) {
+            el.scrollIntoView({ behavior: "smooth" });
+          }
+        }, 150);
+        break;
+      case "resume":
+      case "download resume":
+        response = (
+          <div className="space-y-1 text-gray-300 text-[11px] sm:text-xs text-left">
+            <p className="text-white font-semibold">📄 Resume Download Node:</p>
+            <p className="text-emerald-400 font-semibold animate-pulse">
+              [EXECUTION] Triggering transmission protocol for 'Krish_Mahajan_Resume.pdf'...
+            </p>
+          </div>
+        );
+        if (typeof window !== "undefined") {
+          const link = document.createElement("a");
+          link.href = "/Krish_Mahajan_Resume.pdf";
+          link.download = "Krish_Mahajan_Resume.pdf";
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        }
         break;
       case "clear":
         setHistory([]);
@@ -362,6 +404,8 @@ export const InteractiveTerminal: React.FC = () => {
                       { label: "skills", cmd: "skills" },
                       { label: "current_status", cmd: "current_status" },
                       { label: "open projects", cmd: "open projects" },
+                      { label: "contacts", cmd: "contacts" },
+                      { label: "download resume", cmd: "download resume" },
                       { label: "clear", cmd: "clear" },
                     ].map((btn) => (
                       <button

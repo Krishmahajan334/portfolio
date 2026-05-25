@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { InteractiveTerminal } from "@/components/InteractiveTerminal";
+import { AntiScrapeShield } from "@/components/AntiScrapeShield";
 
 export const metadata: Metadata = {
   title: "Krish Mahajan | Computer Science Engineer & Tech Innovator",
@@ -20,6 +21,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-[#050816] text-[#ededed] font-sans selection:bg-[#00F5FF]/30 selection:text-white overflow-x-hidden">
         {children}
         <InteractiveTerminal />
+        <AntiScrapeShield />
       </body>
     </html>
   );

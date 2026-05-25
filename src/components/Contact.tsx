@@ -25,6 +25,7 @@ export const Contact: React.FC = () => {
   });
 
   const [validationErrors, setValidationErrors] = useState<string[]>([]);
+  const [botField, setBotField] = useState("");
 
   // Robust Spam/Gibberish Message Verification Engine
   const detectGibberish = (text: string): ValidationResult => {
@@ -115,6 +116,23 @@ export const Contact: React.FC = () => {
     e.preventDefault();
     setFeedback({ type: null, text: "" });
     setValidationErrors([]);
+
+    // 1. Spambot Honeypot Validation: bots automatically fill hidden inputs
+    if (botField.trim() !== "") {
+      setFeedback({
+        type: "success",
+        text: "Excellent! Your message was transmitted successfully. I will get back to you soon!",
+      });
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+      setBotField("");
+      return;
+    }
 
     const validation = detectGibberish(formData.message);
     if (!validation.isValid) {
@@ -291,6 +309,16 @@ export const Contact: React.FC = () => {
               />
               
               <form onSubmit={handleFormSubmit} className="space-y-5 relative z-10">
+                {/* Spambot Honeypot Input: Invisible to humans, trap for crawler bots */}
+                <input
+                  type="text"
+                  name="website_verify_bot"
+                  value={botField}
+                  onChange={(e) => setBotField(e.target.value)}
+                  className="hidden"
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
                 
                 {/* Names row */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

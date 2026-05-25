@@ -338,7 +338,7 @@ export const Hero: React.FC = () => {
             className="flex items-center gap-2 px-3.5 py-2 rounded-full border border-brand-cyan/20 bg-brand-cyan/5 text-[9px] sm:text-xs font-semibold tracking-widest text-brand-cyan uppercase"
           >
             <Sparkles className="w-3.5 h-3.5 animate-pulse text-brand-cyan" />
-            <span>DST ASSOCIATED JUNIOR SCIENTIST</span>
+            <span>DST ASSOCIATED AWARDEE JUNIOR SCIENTIST</span>
           </motion.div>
 
           {/* Premium Beveled Title with Responsive Typography */}

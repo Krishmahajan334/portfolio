@@ -131,15 +131,16 @@ export const InteractiveTerminal: React.FC = () => {
       case "open projects":
         response = (
           <div className="text-emerald-400 font-semibold animate-pulse text-[11px] sm:text-xs">
-            [EXECUTION] Scrolling down to Projects showcase section...
+            [EXECUTION] Scrolling down to Projects showcase section and minimizing console...
           </div>
         );
+        setIsMinimized(true);
         setTimeout(() => {
           const el = document.getElementById("projects");
           if (el) {
             el.scrollIntoView({ behavior: "smooth" });
           }
-        }, 100);
+        }, 150);
         break;
       case "clear":
         setHistory([]);

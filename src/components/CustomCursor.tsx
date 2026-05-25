@@ -129,7 +129,7 @@ export const CustomCursor: React.FC = () => {
   return (
     <>
       {/* 1. Dissolving Glowing Energy Node Trail Wake */}
-      <div className="fixed inset-0 pointer-events-none z-50 overflow-hidden mix-blend-screen">
+      <div className="fixed inset-0 pointer-events-none z-[9999] overflow-hidden mix-blend-screen">
         <AnimatePresence>
           {trail.map((node) => (
             <motion.div
@@ -153,7 +153,7 @@ export const CustomCursor: React.FC = () => {
 
       {/* 2. Outer Snapping Magnetic Halo Ring (Elastic Spring Physics) */}
       <motion.div
-        className="fixed top-0 left-0 border pointer-events-none z-50 mix-blend-screen -translate-x-1/2 -translate-y-1/2"
+        className="fixed top-0 left-0 border pointer-events-none z-[9999] mix-blend-screen -translate-x-1/2 -translate-y-1/2"
         animate={{
           x: haloX,
           y: haloY,
@@ -178,7 +178,7 @@ export const CustomCursor: React.FC = () => {
 
       {/* 3. Inner Laser Core Focus point */}
       <motion.div
-        className="fixed top-0 left-0 w-1.5 h-1.5 bg-brand-cyan rounded-full pointer-events-none z-50 -translate-x-1/2 -translate-y-1/2"
+        className="fixed top-0 left-0 w-1.5 h-1.5 bg-brand-cyan rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2"
         animate={{
           x: coords.x,
           y: coords.y,

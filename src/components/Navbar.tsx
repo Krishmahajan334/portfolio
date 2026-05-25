@@ -103,6 +103,17 @@ export const Navbar: React.FC = () => {
                 </a>
               );
             })}
+            
+            {/* Terminal Option */}
+            <button
+              onClick={() => {
+                window.dispatchEvent(new CustomEvent("toggle-terminal"));
+              }}
+              className="px-4 py-2 text-sm font-medium tracking-wide text-gray-400 hover:text-brand-cyan transition-colors duration-300 flex items-center gap-1 cursor-pointer font-mono"
+            >
+              <span className="text-brand-cyan font-bold">&gt;_</span>
+              <span>Terminal</span>
+            </button>
           </div>
 
           {/* CTAs / Social Shortcut */}
@@ -155,6 +166,18 @@ export const Navbar: React.FC = () => {
                   </a>
                 );
               })}
+              
+              {/* Mobile Terminal Option */}
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  window.dispatchEvent(new CustomEvent("toggle-terminal"));
+                }}
+                className="py-2 text-base font-mono font-medium tracking-wide border-l-2 pl-4 text-gray-400 border-transparent hover:text-brand-cyan hover:border-brand-cyan/20 flex items-center gap-1 cursor-pointer"
+              >
+                <span className="text-brand-cyan font-bold">&gt;_</span>
+                <span>Terminal</span>
+              </button>
               <a
                 href="#contact-form"
                 onClick={() => setMobileMenuOpen(false)}

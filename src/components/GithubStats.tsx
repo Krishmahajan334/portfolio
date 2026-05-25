@@ -48,13 +48,13 @@ export const GithubStats: React.FC = () => {
   const pinnedRepos: PinnedRepo[] = [
     {
       name: "Tagtrix",
-      description: "An intelligent WebRTC high-speed file transfer bridge with end-to-end symmetric crypto and zero-relay P2P pipelines.",
+      description: "A digital authentication and authorization node replacing legacy locks with real-time WebSocket handshakes and remote MongoDB transaction logging.",
       stars: 12,
       forks: 4,
-      language: "TypeScript",
-      langColor: "#3178c6",
+      language: "JavaScript",
+      langColor: "#f1e05a",
       url: "https://github.com/Krishmahajan334/Tagtrix",
-      techStack: ["Next.js", "WebRTC", "WebCrypto", "Tailwind"],
+      techStack: ["React.js", "Express.js", "MongoDB", "WebSockets"],
     },
     {
       name: "AquaSense",

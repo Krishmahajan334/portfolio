@@ -80,7 +80,7 @@ export const TiltCard: React.FC<TiltCardProps> = ({
       }}
     >
       {/* 1. Main child contents */}
-      <div style={{ transform: "translateZ(30px)", transformStyle: "preserve-3d" }}>
+      <div className="h-full" style={{ height: "100%", transform: "translateZ(30px)", transformStyle: "preserve-3d" }}>
         {children}
       </div>
 

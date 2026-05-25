@@ -115,6 +115,23 @@ export const Footer: React.FC = () => {
         {/* Horizontal Divider */}
         <div className="w-full h-px bg-gradient-to-r from-transparent via-white/5 to-transparent my-2" />
 
+        {/* Centered Watermark Logo linking to Linktree */}
+        <div className="flex justify-center items-center my-3">
+          <a
+            href="https://linktr.ee/krishmahajan1008"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center justify-center transition-transform hover:scale-105"
+            aria-label="Krish Mahajan Linktree"
+          >
+            <img
+              src="/assets/watermark_logo_light.png"
+              alt="Krish Mahajan Watermark Logo"
+              className="h-8 w-auto object-contain opacity-35 group-hover:opacity-100 transition-opacity duration-300 filter drop-shadow-[0_0_8px_rgba(0,245,255,0.2)]"
+            />
+          </a>
+        </div>
+
         {/* Footer Meta info */}
         <div className="w-full flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500 text-center md:text-left">
           <p>© {new Date().getFullYear()} Krish Mahajan. All rights reserved.</p>

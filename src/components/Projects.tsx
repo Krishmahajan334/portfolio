@@ -22,18 +22,18 @@ interface Project {
 export const Projects: React.FC = () => {
   const projectsList: Project[] = [
     {
-      title: "Tagtrix: Enterprise Security Hub",
-      category: "Software",
-      problem: "Legacy physical locks lack real-time digital authentication logging, database authorization rules, and centralized remote administrative control.",
+      title: "Tagtrix: Smart RFID Access Control",
+      category: "Intelligent Systems",
+      problem: "Shared institutional resources like electricity and water lack secure, authorized access control in classrooms, labs, and plants, leading to unauthorized use and resource wastage.",
       features: [
-        "Built a real-time digital authorization node using secure WebSocket handshakes.",
-        "Pushes transactional access logs directly to scalable remote MongoDB databases.",
-        "Designed a modern client interface to manage credential rules and view logs."
+        "Allows resource activation only upon scanning registered RFID tags to guarantee authorized use.",
+        "Integrates a modular, scalable, and cost-effective design that smoothly fits existing industrial/institutional setups.",
+        "Provides customized features like usage tracking, time-based access parameters, and individual user accountability."
       ],
-      tech: ["React.js", "Express.js", "MongoDB", "WebSockets", "Edge Node"],
-      achievement: "99.9% transaction integrity with instantaneous logging latency",
-      impact: "Replaces manual physical key systems with real-time auditable access logs",
-      github: "https://github.com/Krishmahajan334",
+      tech: ["RFID Telemetry", "Embedded C++", "Microcontrollers", "Relay Actuators", "Usage Tracking"],
+      achievement: "Promotes institutional accountability with customized usage tracking and individual control limits",
+      impact: "Reduces unauthorized resource access and prevents wasteful electricity and water consumption",
+      github: "https://github.com/Krishmahajan334/Tagtrix",
       badge: "Product Release",
       color: "hover:border-brand-cyan/30",
       glowColor: "rgba(0, 245, 255, 0.05)",
@@ -51,7 +51,7 @@ export const Projects: React.FC = () => {
       tech: ["ESP32 / ESP8266", "Embedded C++", "Flow Telemetry", "Servo-Valves", "Real-time Dashboards"],
       achievement: "Provides real-time multi-area water intelligence and automated smart suggestions based on consumption pattern analysis",
       impact: "Transforms traditional resource management into a data-driven, highly optimized, and sustainable self-balancing water system",
-      github: "https://github.com/Krishmahajan334/AquaSense-Smart-Water-Monitoring-System",
+      github: "https://github.com/Krishmahajan334/AquaSense",
       badge: "System Release",
       color: "hover:border-brand-purple/30",
       glowColor: "rgba(127, 90, 240, 0.05)",
@@ -128,14 +128,21 @@ export const Projects: React.FC = () => {
           </p>
         </div>
 
-        {/* Project Cases Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
-          {projectsList.map((project) => (
-            <TiltCard key={project.title} className="h-full">
-              <div
-                onMouseMove={handleMouseMove}
-                className={`group relative rounded-2xl border border-white/5 bg-[#03050e]/40 backdrop-blur-md overflow-hidden transition-all duration-500 flex flex-col justify-between h-full ${project.color}`}
-              >
+        {/* Project Cases Grid with Cybernetic Vertical Separator */}
+        <div className="relative">
+          {/* Futuristic vertical separator line between columns (large screens) */}
+          <div className="hidden lg:block absolute left-1/2 top-6 bottom-6 w-px bg-gradient-to-b from-transparent via-white/10 to-transparent -translate-x-1/2 z-0 pointer-events-none">
+            <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-brand-cyan shadow-[0_0_8px_#00F5FF] animate-pulse" />
+            <div className="absolute top-3/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-brand-purple shadow-[0_0_8px_#7F5AF0] animate-pulse" />
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 relative z-10">
+            {projectsList.map((project) => (
+              <TiltCard key={project.title} className="h-full">
+                <div
+                  onMouseMove={handleMouseMove}
+                  className={`group relative rounded-2xl border border-white/10 hover:border-brand-cyan/35 bg-gradient-to-br from-[#0c102b]/60 to-[#05081c]/70 hover:from-[#0f153a]/80 hover:to-[#080d28]/90 shadow-[0_15px_35px_rgba(0,0,0,0.6)] backdrop-blur-[3px] overflow-hidden transition-all duration-500 flex flex-col justify-between h-full ${project.color} hover:shadow-[0_0_30px_rgba(0,245,255,0.08)]`}
+                >
                 
                 {/* 1. Core Card Coordinate Spotlight Glare */}
                 <div
@@ -273,6 +280,7 @@ export const Projects: React.FC = () => {
             </TiltCard>
           ))}
         </div>
+      </div>
 
       </div>
     </section>

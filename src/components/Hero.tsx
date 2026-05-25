@@ -312,7 +312,12 @@ export const Hero: React.FC = () => {
       <div className="absolute top-[15%] left-[5%] w-[45vw] h-[45vw] bg-brand-cyan/5 rounded-full blur-[140px] pointer-events-none z-0 animate-spotlight-drift" />
       <div className="absolute bottom-[15%] right-[5%] w-[45vw] h-[45vw] bg-brand-purple/5 rounded-full blur-[140px] pointer-events-none z-0 animate-spotlight-drift [animation-delay:4s]" />
 
-      <div className="max-w-6xl mx-auto w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center py-12 md:py-24">
+      <div className="max-w-6xl mx-auto w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center px-6 sm:px-12 py-12 md:py-16 rounded-3xl border border-white/5 bg-gradient-to-br from-[#0a0f26]/40 to-[#03050e]/60 backdrop-blur-[3px] shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden">
+        {/* Decorative Internal Glowing Spotlight Mesh in background */}
+        <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-brand-cyan/5 rounded-full blur-[100px] pointer-events-none z-0" />
+        <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-brand-purple/5 rounded-full blur-[100px] pointer-events-none z-0" />
+        {/* Tech Grid Pattern Overlay */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff01_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:24px_24px] opacity-60 pointer-events-none" />
         
         {/* Left Side: 3D Mouse Reactive Content Card */}
         <motion.div
@@ -468,10 +473,13 @@ export const Hero: React.FC = () => {
           <motion.div
             animate={{ scale: [1, 1.04, 1] }}
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            className="w-[90px] h-[90px] sm:w-[130px] sm:h-[130px] rounded-full border border-brand-cyan/20 bg-brand-cyan/5 backdrop-blur-md flex flex-col justify-center items-center shadow-[0_0_40px_rgba(0,245,255,0.08)]"
+            className="w-[90px] h-[90px] sm:w-[130px] sm:h-[130px] rounded-full border border-brand-cyan/20 bg-brand-cyan/5 backdrop-blur-[3px] flex flex-col justify-center items-center shadow-[0_0_40px_rgba(0,245,255,0.08)]"
           >
-            <Sparkles className="w-6 h-6 text-brand-cyan mb-1 animate-pulse" />
-            <span className="text-[8px] font-heading font-extrabold text-brand-cyan tracking-widest uppercase">CORE COMPILER</span>
+            <img
+              src="/assets/watermark_logo_light.png"
+              alt="Krish Mahajan Watermark"
+              className="w-[50px] h-[50px] sm:w-[80px] sm:h-[80px] object-contain animate-pulse"
+            />
           </motion.div>
         </div>
 

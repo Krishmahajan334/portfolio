@@ -52,8 +52,8 @@ export const Navbar: React.FC = () => {
         transition={{ duration: 0.5 }}
         className={`fixed top-0 left-0 w-full z-40 transition-all duration-300 ${
           scrolled
-            ? "bg-[#050816]/75 backdrop-blur-md border-b border-white/5 py-4"
-            : "bg-transparent py-6"
+            ? "bg-[#050816]/85 backdrop-blur-[3px] border-b border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)] py-4"
+            : "bg-[#050816]/40 backdrop-blur-[2px] border-b border-white/5 py-5"
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
@@ -124,16 +124,30 @@ export const Navbar: React.FC = () => {
             >
               HIRE ME
             </a>
+
+            <img
+              src="/assets/watermark_logo_light.png"
+              alt="Krish Mahajan Watermark"
+              className="h-8 w-auto object-contain opacity-40 select-none pointer-events-none filter drop-shadow-[0_0_6px_rgba(0,245,255,0.15)] ml-1"
+            />
           </div>
 
-          {/* Mobile Menu Toggle */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-all"
-            aria-label="Toggle mobile menu"
-          >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          {/* Mobile Menu Toggle & Watermark */}
+          <div className="flex md:hidden items-center gap-3">
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="p-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-all"
+              aria-label="Toggle mobile menu"
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+
+            <img
+              src="/assets/watermark_logo_light.png"
+              alt="Krish Mahajan Watermark"
+              className="h-7 w-auto object-contain opacity-50 select-none pointer-events-none"
+            />
+          </div>
         </div>
       </motion.nav>
 

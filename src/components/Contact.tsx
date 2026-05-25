@@ -129,18 +129,19 @@ export const Contact: React.FC = () => {
     setLoading(true);
 
     try {
-      const response = await fetch("https://formspree.io/f/mjkrlgar", {
+      const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Accept: "application/json",
         },
         body: JSON.stringify({
-          firstName: formData.firstName,
-          lastName: formData.lastName,
+          access_key: "6081004d-5ce5-4c25-8620-41fc8937cc41",
+          name: `${formData.firstName} ${formData.lastName}`,
           email: formData.email,
           subject: formData.subject,
           message: formData.message,
-          _subject: "New portfolio message from Krish Mahajan Portfolio!",
+          from_name: "Krish Mahajan Portfolio",
         }),
       });
 
@@ -157,7 +158,7 @@ export const Contact: React.FC = () => {
           message: "",
         });
       } else {
-        throw new Error("Formspree rejected package.");
+        throw new Error("Web3Forms rejected package.");
       }
     } catch (err) {
       console.error("Transmission error:", err);

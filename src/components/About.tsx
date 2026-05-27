@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { Sparkles, FlaskConical, Layers, BookOpen, GraduationCap, ArrowRight, Download, Mail, Star, Heart } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Sparkles, FlaskConical, Layers, BookOpen, GraduationCap, ArrowRight, Download, Mail, Star, Heart, ChevronDown, ChevronUp } from "lucide-react";
 import Image from "next/image";
 import { TiltCard } from "./TiltCard";
 
@@ -20,6 +20,17 @@ interface TimelineEvent {
 
 export const About: React.FC = () => {
   const [downloading, setDownloading] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const triggerDownload = () => {
     setDownloading(true);
@@ -155,7 +166,7 @@ export const About: React.FC = () => {
                     src="/krish PASSPORT200kb.png"
                     alt="Krish Mahajan Child Scientist & CS Engineer"
                     fill
-                    className="object-cover scale-100 group-hover:scale-105 group-hover:brightness-110 filter grayscale group-hover:grayscale-0 transition-all duration-700"
+                    className="object-cover scale-100 group-hover:scale-105 group-hover:brightness-110 filter grayscale-0 group-hover:grayscale transition-all duration-700"
                     sizes="(max-w-768px) 100vw, 280px"
                     priority
                   />
@@ -214,80 +225,112 @@ export const About: React.FC = () => {
           </div>
         </div>
 
-        {/* Cinematic Narrative Storyline Timeline */}
-        <div className="relative max-w-4xl mx-auto pl-8 md:pl-16">
-          
-          {/* Main Glowing Connector Vertical Track */}
-          <div className="absolute left-[15px] md:left-[31px] top-4 bottom-4 w-[2px] bg-gradient-to-b from-brand-cyan/40 via-brand-purple/20 to-brand-green/40 pointer-events-none" />
-
-          {/* Narrative Chapters Loop */}
-          <div className="space-y-16 md:space-y-24">
-            {timelineEvents.map((event, idx) => (
+        {isMobile && (
+          <div className="flex justify-center mb-12">
+            <button
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="group relative flex items-center gap-3 px-6 py-4 rounded-2xl border border-brand-cyan/35 bg-[#0a0f29]/80 text-brand-cyan font-bold tracking-wider hover:bg-brand-cyan hover:text-black hover:shadow-[0_0_30px_rgba(0,245,255,0.35)] transition-all duration-300 font-heading select-none cursor-pointer"
+            >
+              {/* Glowing animated border effect */}
+              <div className="absolute inset-0 rounded-2xl border border-brand-cyan/20 opacity-40 group-hover:opacity-100 group-hover:border-brand-cyan/60 transition-opacity" />
+              <Sparkles className="w-4 h-4 text-brand-cyan animate-pulse group-hover:text-black" />
+              <span>{isExpanded ? "HIDE DETAILED JOURNEY" : "READ ABOUT MY SCIENTIFIC JOURNEY"}</span>
               <motion.div
-                key={idx}
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.7, type: "spring", stiffness: 100 }}
-                className="relative flex flex-col items-start gap-4 text-left"
+                animate={{ rotate: isExpanded ? 180 : 0 }}
+                transition={{ duration: 0.3 }}
               >
-                
-                {/* Glowing Node Connector Bullet */}
-                <div className="absolute -left-[33px] md:-left-[49px] top-1.5 w-6 h-6 md:w-8 md:h-8 rounded-full border border-white/10 bg-[#050816] flex justify-center items-center z-20 shadow-[0_0_15px_rgba(0,245,255,0.1)]">
-                  <div className={`w-2.5 h-2.5 md:w-3.5 md:h-3.5 rounded-full ${event.accent} animate-pulse`} />
-                </div>
-
-                {/* Chapter Date & Location Row */}
-                <div className="flex flex-wrap items-center gap-3">
-                  <span className="px-3.5 py-1 rounded-full text-xs font-heading font-extrabold bg-white/5 border border-white/10 text-white tracking-wider">
-                    {event.year}
-                  </span>
-                  <span className="text-xs text-gray-500 font-heading tracking-widest uppercase">
-                    {event.location}
-                  </span>
-                </div>
-
-                {/* Chapter Content Card (Premium Glassmorphism Card) */}
-                <div className={`w-full rounded-2xl border p-6 md:p-8 ${event.color} backdrop-blur-md transition-all duration-300 hover:border-white/10 hover:bg-white/[0.04] group`}>
-                  
-                  {/* Badge & Icon header */}
-                  <div className="flex items-center justify-between gap-4 mb-4">
-                    <div className="flex items-center gap-3">
-                      <div className="p-2.5 rounded-xl bg-white/5 text-white border border-white/10 group-hover:border-white/20 transition-colors">
-                        {event.icon}
-                      </div>
-                      <div>
-                        <h4 className="text-xl md:text-2xl font-heading font-extrabold text-white tracking-tight leading-tight">
-                          {event.title}
-                        </h4>
-                        <p className="text-sm text-gray-400 font-sans font-medium mt-0.5">
-                          {event.subtitle}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Narration Description */}
-                  <p className="text-gray-300 font-sans font-light text-base md:text-lg leading-relaxed">
-                    {event.description}
-                  </p>
-
-                  {/* Chapter Highlights Badge */}
-                  {event.badge && (
-                    <div className="mt-6 flex flex-wrap gap-2">
-                      <span className="px-3 py-1 rounded-lg text-[10px] sm:text-xs font-heading font-bold uppercase tracking-wider bg-white/5 border border-white/5 text-gray-400 flex items-center gap-1.5">
-                        <Sparkles className="w-3.5 h-3.5 text-brand-cyan animate-pulse" />
-                        {event.badge}
-                      </span>
-                    </div>
-                  )}
-                </div>
-
+                <ChevronDown className="w-5 h-5 group-hover:scale-110" />
               </motion.div>
-            ))}
+            </button>
           </div>
+        )}
 
-        </div>
+        <AnimatePresence>
+          {(!isMobile || isExpanded) && (
+            <motion.div
+              initial={isMobile ? { height: 0, opacity: 0 } : false}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+              className="overflow-hidden w-full"
+            >
+              {/* Cinematic Narrative Storyline Timeline */}
+              <div className="relative max-w-4xl mx-auto pl-8 md:pl-16">
+                
+                {/* Main Glowing Connector Vertical Track */}
+                <div className="absolute left-[15px] md:left-[31px] top-4 bottom-4 w-[2px] bg-gradient-to-b from-brand-cyan/40 via-brand-purple/20 to-brand-green/40 pointer-events-none" />
+
+                {/* Narrative Chapters Loop */}
+                <div className="space-y-16 md:space-y-24">
+                  {timelineEvents.map((event, idx) => (
+                    <motion.div
+                      key={idx}
+                      initial={{ opacity: 0, x: -30 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true, margin: "-100px" }}
+                      transition={{ duration: 0.7, type: "spring", stiffness: 100 }}
+                      className="relative flex flex-col items-start gap-4 text-left"
+                    >
+                      
+                      {/* Glowing Node Connector Bullet */}
+                      <div className="absolute -left-[33px] md:-left-[49px] top-1.5 w-6 h-6 md:w-8 md:h-8 rounded-full border border-white/10 bg-[#050816] flex justify-center items-center z-20 shadow-[0_0_15px_rgba(0,245,255,0.1)]">
+                        <div className={`w-2.5 h-2.5 md:w-3.5 md:h-3.5 rounded-full ${event.accent} animate-pulse`} />
+                      </div>
+
+                      {/* Chapter Date & Location Row */}
+                      <div className="flex flex-wrap items-center gap-3">
+                        <span className="px-3.5 py-1 rounded-full text-xs font-heading font-extrabold bg-white/5 border border-white/10 text-white tracking-wider">
+                          {event.year}
+                        </span>
+                        <span className="text-xs text-gray-500 font-heading tracking-widest uppercase">
+                          {event.location}
+                        </span>
+                      </div>
+
+                      {/* Chapter Content Card (Premium Glassmorphism Card) */}
+                      <div className={`w-full rounded-2xl border p-6 md:p-8 ${event.color} backdrop-blur-md transition-all duration-300 hover:border-white/10 hover:bg-white/[0.04] group`}>
+                        
+                        {/* Badge & Icon header */}
+                        <div className="flex items-center justify-between gap-4 mb-4">
+                          <div className="flex items-center gap-3">
+                            <div className="p-2.5 rounded-xl bg-white/5 text-white border border-white/10 group-hover:border-white/20 transition-colors">
+                              {event.icon}
+                            </div>
+                            <div>
+                              <h4 className="text-xl md:text-2xl font-heading font-extrabold text-white tracking-tight leading-tight">
+                                {event.title}
+                              </h4>
+                              <p className="text-sm text-gray-400 font-sans font-medium mt-0.5">
+                                {event.subtitle}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Narration Description */}
+                        <p className="text-gray-300 font-sans font-light text-base md:text-lg leading-relaxed">
+                          {event.description}
+                        </p>
+
+                        {/* Chapter Highlights Badge */}
+                        {event.badge && (
+                          <div className="mt-6 flex flex-wrap gap-2">
+                            <span className="px-3 py-1 rounded-lg text-[10px] sm:text-xs font-heading font-bold uppercase tracking-wider bg-white/5 border border-white/5 text-gray-400 flex items-center gap-1.5">
+                              <Sparkles className="w-3.5 h-3.5 text-brand-cyan animate-pulse" />
+                              {event.badge}
+                            </span>
+                          </div>
+                        )}
+                      </div>
+
+                    </motion.div>
+                  ))}
+                </div>
+
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* Futuristic Future-Oriented Conclusion Card */}
         <motion.div

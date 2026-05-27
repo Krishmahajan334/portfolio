@@ -308,7 +308,7 @@ export const GithubStats: React.FC = () => {
           </div>
 
           {/* Grid Scroll Wrapper */}
-          <div className="overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-white/10">
+          <div className="w-full max-w-full block overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-white/10">
             <div className="min-w-[680px] flex gap-3 select-none">
               
               {/* Day Labels */}

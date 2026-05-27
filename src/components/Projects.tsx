@@ -281,7 +281,6 @@ export const Projects: React.FC = () => {
           ))}
         </div>
       </div>
-
       </div>
     </section>
   );

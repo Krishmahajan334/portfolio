@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Terminal, Cpu } from "lucide-react";
+import { Menu, X, Terminal, Cpu, Sparkles, Wrench, Layers, Award, GitBranch, Mail } from "lucide-react";
 
 export const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -18,6 +18,27 @@ export const Navbar: React.FC = () => {
     { name: "GitHub", href: "#github-activity" },
     { name: "Contact", href: "#contact-form" },
   ];
+
+  const linkIcons: { [key: string]: React.ReactNode } = {
+    Home: <Cpu className="w-4 h-4 text-brand-cyan" />,
+    About: <Sparkles className="w-4 h-4 text-brand-cyan animate-pulse" />,
+    Skills: <Wrench className="w-4 h-4 text-brand-cyan" />,
+    Projects: <Layers className="w-4 h-4 text-brand-cyan" />,
+    Journey: <Award className="w-4 h-4 text-brand-cyan" />,
+    GitHub: <GitBranch className="w-4 h-4 text-brand-cyan" />,
+    Contact: <Mail className="w-4 h-4 text-brand-cyan" />,
+  };
+
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileMenuOpen]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -149,60 +170,61 @@ export const Navbar: React.FC = () => {
             />
           </div>
         </div>
-      </motion.nav>
 
-      {/* Mobile Drawer */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.2 }}
-            className="fixed top-[73px] left-0 w-full z-30 bg-[#050816]/95 backdrop-blur-lg border-b border-white/5 md:hidden"
-          >
-            <div className="px-6 py-8 flex flex-col gap-4">
-              {navLinks.map((link) => {
-                const linkId = link.href.substring(1);
-                const isActive = activeSection === linkId;
-                return (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className={`py-2 text-base font-medium tracking-wide border-l-2 pl-4 transition-all ${
-                      isActive
-                        ? "text-brand-cyan border-brand-cyan bg-brand-cyan/5"
-                        : "text-gray-400 border-transparent hover:text-white hover:border-white/20"
-                    }`}
-                  >
-                    {link.name}
-                  </a>
-                );
-              })}
-              
-              {/* Mobile Terminal Option */}
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  window.dispatchEvent(new CustomEvent("toggle-terminal"));
-                }}
-                className="py-2 text-base font-mono font-medium tracking-wide border-l-2 pl-4 text-gray-400 border-transparent hover:text-brand-cyan hover:border-brand-cyan/20 flex items-center gap-1 cursor-pointer"
-              >
-                <span className="text-brand-cyan font-bold">&gt;_</span>
-                <span>Terminal</span>
-              </button>
-              <a
-                href="#contact-form"
-                onClick={() => setMobileMenuOpen(false)}
-                className="mt-4 w-full py-3 rounded-xl text-center text-sm font-semibold tracking-wider bg-brand-cyan text-black hover:bg-brand-cyan/90 transition-all font-heading"
-              >
-                HIRE ME
-              </a>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+        {/* Mobile Drawer (placed absolutely inside the fixed navbar container for gapless layout) */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="absolute top-full left-0 w-full z-30 bg-[#050816]/95 backdrop-blur-xl border-b border-white/10 md:hidden overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8)]"
+            >
+              <div className="px-6 py-8 flex flex-col gap-4">
+                {navLinks.map((link) => {
+                  const linkId = link.href.substring(1);
+                  const isActive = activeSection === linkId;
+                  return (
+                    <a
+                      key={link.name}
+                      href={link.href}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className={`py-3 text-base font-medium tracking-wide border-l-2 pl-4 transition-all flex items-center gap-3.5 ${
+                        isActive
+                          ? "text-brand-cyan border-brand-cyan bg-brand-cyan/5 shadow-[inset_4px_0_12px_rgba(0,245,255,0.05)]"
+                          : "text-gray-400 border-transparent hover:text-white hover:border-white/20"
+                      }`}
+                    >
+                      {linkIcons[link.name]}
+                      <span>{link.name}</span>
+                    </a>
+                  );
+                })}
+                
+                {/* Mobile Terminal Option */}
+                <button
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    window.dispatchEvent(new CustomEvent("toggle-terminal"));
+                  }}
+                  className="py-3 text-base font-mono font-medium tracking-wide border-l-2 pl-4 text-gray-400 border-transparent hover:text-brand-cyan hover:border-brand-cyan/20 flex items-center gap-3.5 cursor-pointer text-left w-full"
+                >
+                  <Terminal className="w-4 h-4 text-brand-cyan" />
+                  <span>Terminal Mode</span>
+                </button>
+                <a
+                  href="#contact-form"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="mt-4 w-full py-3.5 rounded-xl text-center text-sm font-semibold tracking-wider bg-brand-cyan text-black hover:bg-brand-cyan/90 transition-all font-heading shadow-[0_4px_20px_rgba(0,245,255,0.25)]"
+                >
+                  HIRE ME
+                </a>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.nav>
     </>
   );
 };

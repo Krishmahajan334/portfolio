@@ -246,8 +246,11 @@ export const Contact: React.FC = () => {
                 </div>
                 <div className="flex flex-col">
                   <span className="text-xs text-gray-500 uppercase tracking-widest font-heading font-bold">EMAIL NODE</span>
-                  <a href="mailto:krishmahajan334@gmail.com" className="text-sm font-semibold text-white hover:text-brand-purple transition-colors">
-                    krishmahajan334@gmail.com
+                  <a href="mailto:contact@krishmahajan.dev" className="text-sm font-semibold text-white hover:text-brand-purple transition-colors">
+                    contact@krishmahajan.dev
+                  </a>
+                  <a href="mailto:krishmahajan.1008@gmail.com" className="text-[10px] text-gray-600 hover:text-gray-400 mt-1 transition-colors">
+                    Secondary: krishmahajan.1008@gmail.com
                   </a>
                 </div>
               </div>
@@ -367,7 +370,7 @@ export const Contact: React.FC = () => {
                     required
                     value={formData.email}
                     onChange={handleInputChange}
-                    placeholder="krishmahajan334@gmail.com"
+                    placeholder="elon@spacex.com"
                     className="px-4 py-3 rounded-xl bg-[#050816]/70 border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-brand-purple/80 focus:shadow-[0_0_12px_rgba(127,90,240,0.2)] transition-all text-sm w-full font-sans"
                   />
                 </div>
@@ -453,7 +456,7 @@ export const Contact: React.FC = () => {
                       
                       {feedback.type === "error" && (
                         <a
-                          href={`mailto:krishmahajan334@gmail.com?subject=Portfolio%20Contact&body=${encodeURIComponent(
+                          href={`mailto:contact@krishmahajan.dev?subject=Portfolio%20Contact&body=${encodeURIComponent(
                             formData.message
                           )}`}
                           className="px-4 py-2 rounded bg-red-500/10 border border-red-500/20 hover:bg-red-500/20 text-center font-bold font-heading uppercase text-[10px] tracking-widest text-red-400 mt-1 transition-all"

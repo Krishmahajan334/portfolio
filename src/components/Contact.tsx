@@ -263,7 +263,10 @@ export const Contact: React.FC = () => {
                 <div className="flex flex-col">
                   <span className="text-xs text-gray-500 uppercase tracking-widest font-heading font-bold">LOCATION COORDS</span>
                   <span className="text-sm font-semibold text-white">
-                    Batote, Jammu & Kashmir, India
+                    Ichalkaranji, Maharashtra, India
+                  </span>
+                  <span className="text-[10px] text-gray-500 mt-1 block">
+                    Hometown: Batote, J&K
                   </span>
                 </div>
               </div>

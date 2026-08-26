@@ -209,8 +209,11 @@ export const Hero: React.FC = () => {
   const [scanMessage, setScanMessage] = useState("Scan Initiated");
   const cardRef = useRef<HTMLDivElement>(null);
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
+  const [isMobile, setIsMobile] = useState(true);
 
   useEffect(() => {
+    setIsMobile(window.matchMedia("(max-width: 768px)").matches);
+
     const timer = setInterval(() => {
       setSubIndex((prev) => (prev + 1) % subtitles.length);
     }, 3000);
@@ -303,10 +306,10 @@ export const Hero: React.FC = () => {
       style={{ minHeight: "100vh" }}
     >
       {/* Dynamic line wave shader */}
-      <LineWaves />
+      {!isMobile && <LineWaves />}
 
       {/* HTML5 3D Perspective Projection Constellation Canvas */}
-      <Canvas3DParticles />
+      {!isMobile && <Canvas3DParticles />}
 
       {/* Cinematic Ambient mesh spotlights with drift animations */}
       <div className="absolute top-[15%] left-[5%] w-[45vw] h-[45vw] bg-brand-cyan/5 rounded-full blur-[140px] pointer-events-none z-0 animate-spotlight-drift" />

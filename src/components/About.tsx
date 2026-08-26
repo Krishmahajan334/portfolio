@@ -24,7 +24,6 @@ interface TimelineEvent {
 export const About: React.FC = () => {
   const [downloading, setDownloading] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const [isExpanded, setIsExpanded] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -231,37 +230,9 @@ export const About: React.FC = () => {
           </div>
         </div>
 
-        {isMobile && (
-          <div className="flex justify-center mb-12">
-            <button
-              onClick={() => setIsExpanded(!isExpanded)}
-              className="group relative flex items-center gap-3 px-6 py-4 rounded-2xl border border-brand-cyan/35 bg-[#0a0f29]/80 text-brand-cyan font-bold tracking-wider hover:bg-brand-cyan hover:text-black hover:shadow-[0_0_30px_rgba(0,245,255,0.35)] transition-all duration-300 font-heading select-none cursor-pointer"
-            >
-              {/* Glowing animated border effect */}
-              <div className="absolute inset-0 rounded-2xl border border-brand-cyan/20 opacity-40 group-hover:opacity-100 group-hover:border-brand-cyan/60 transition-opacity" />
-              <Sparkles className="w-4 h-4 text-brand-cyan animate-pulse group-hover:text-black" />
-              <span>{isExpanded ? "HIDE DETAILED JOURNEY" : "READ ABOUT MY SCIENTIFIC JOURNEY"}</span>
-              <motion.div
-                animate={{ rotate: isExpanded ? 180 : 0 }}
-                transition={{ duration: 0.3 }}
-              >
-                <ChevronDown className="w-5 h-5 group-hover:scale-110" />
-              </motion.div>
-            </button>
-          </div>
-        )}
-
-        <AnimatePresence>
-          {(!isMobile || isExpanded) && (
-            <motion.div
-              initial={isMobile ? { height: 0, opacity: 0 } : false}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.5, ease: "easeInOut" }}
-              className="overflow-hidden w-full"
-            >
-              {/* Cinematic Narrative Storyline Timeline */}
-              <div className="relative max-w-4xl mx-auto pl-8 md:pl-16">
+        <div className="overflow-hidden w-full">
+          {/* Cinematic Narrative Storyline Timeline */}
+          <div className="relative max-w-4xl mx-auto pl-8 md:pl-16">
                 
                 {/* Main Glowing Connector Vertical Track */}
                 <div className="absolute left-[15px] md:left-[31px] top-4 bottom-4 w-[2px] bg-gradient-to-b from-brand-cyan/40 via-brand-purple/20 to-brand-green/40 pointer-events-none" />
@@ -356,10 +327,8 @@ export const About: React.FC = () => {
                   ))}
                 </div>
 
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+          </div>
+        </div>
 
         {/* Futuristic Future-Oriented Conclusion Card */}
         <motion.div

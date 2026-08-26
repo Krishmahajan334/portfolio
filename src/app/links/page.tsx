@@ -121,7 +121,7 @@ export default function LinksPage() {
           <div className="relative w-full h-full bg-[#0a0d1c] rounded-full border border-cyan-500/30 p-1 flex items-center justify-center overflow-hidden">
             {/* Fallback avatar if image fails to load, or use actual image */}
             <img 
-              src="/gallery/ncsc/IMG-20230214-WA0000.jpg" 
+              src="/krish PASSPORT200kb.png" 
               alt="Krish Mahajan"
               className="w-full h-full rounded-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
             />

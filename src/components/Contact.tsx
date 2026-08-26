@@ -106,7 +106,7 @@ export const Contact: React.FC = () => {
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    
+
     if (name === "message" && validationErrors.length > 0) {
       setValidationErrors([]);
     }
@@ -200,37 +200,37 @@ export const Contact: React.FC = () => {
 
   return (
     <section id="contact-form" className="relative w-full py-20 md:py-32 bg-[#050816] px-6 overflow-hidden">
-      
+
       {/* Background spotlights */}
       <div className="hidden md:block absolute top-[20%] left-[5%] w-[350px] h-[350px] bg-brand-cyan/5 blur-[125px] rounded-full pointer-events-none" />
 
       <div className="max-w-5xl mx-auto relative z-10">
-        
+
         {/* Header Title */}
         <div className="text-center mb-16 md:mb-20">
           <div className="flex items-center justify-center gap-2 mb-3 text-xs font-semibold tracking-widest text-brand-purple uppercase">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Comm Channels</span>
           </div>
-          
+
           <h2 className="text-4xl sm:text-5xl font-heading font-extrabold text-white mb-4 tracking-tight">
             Initialize <span className="shimmer-text-cyan font-extrabold">Connection</span>
           </h2>
-          
+
           <p className="text-gray-400 max-w-xl mx-auto text-base font-light">
             Have a project idea, hackathon invitation, or collaboration proposal? Shoot me a message!
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-stretch">
-          
+
           {/* Left Grid Column: Details & Networks */}
           <div className="md:col-span-5 flex flex-col justify-between gap-8 text-left">
             <div className="space-y-6">
               <h3 className="text-3xl font-heading font-extrabold text-white tracking-tight leading-tight">
                 Let&apos;s Build the Future
               </h3>
-              
+
               <p className="text-gray-300 font-sans font-light text-base leading-relaxed">
                 I am highly open to consulting, core software collaborations, automation systems, and advanced technology innovations.
               </p>
@@ -238,7 +238,7 @@ export const Contact: React.FC = () => {
 
             {/* Info details list */}
             <div className="space-y-6">
-              
+
               {/* Mail card */}
               <div className="flex items-start gap-4">
                 <div className="p-3 rounded-xl bg-brand-purple/10 border border-brand-purple/20 text-brand-purple">
@@ -249,8 +249,8 @@ export const Contact: React.FC = () => {
                   <a href="mailto:contact@krishmahajan.dev" className="text-sm font-semibold text-white hover:text-brand-purple transition-colors">
                     contact@krishmahajan.dev
                   </a>
-                  <a href="mailto:krishmahajan.1008@gmail.com" className="text-[10px] text-gray-600 hover:text-gray-400 mt-1 transition-colors">
-                    Secondary: krishmahajan.1008@gmail.com
+                  <a href="mailto:krishmahajan334@gmail.com" className="text-[10px] text-gray-600 hover:text-gray-400 mt-1 transition-colors">
+                    Secondary: krishmahajan334@gmail.com
                   </a>
                 </div>
               </div>
@@ -313,7 +313,7 @@ export const Contact: React.FC = () => {
                   padding: "1px",
                 }}
               />
-              
+
               <form onSubmit={handleFormSubmit} className="space-y-5 relative z-10">
                 {/* Spambot Honeypot Input: Invisible to humans, trap for crawler bots */}
                 <input
@@ -325,7 +325,7 @@ export const Contact: React.FC = () => {
                   tabIndex={-1}
                   autoComplete="off"
                 />
-                
+
                 {/* Names row */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="flex flex-col gap-1.5">
@@ -443,11 +443,10 @@ export const Contact: React.FC = () => {
                 {/* Transmission Feedback */}
                 {feedback.type && (
                   <div
-                    className={`p-4 rounded-xl border flex items-start gap-3 text-xs leading-relaxed ${
-                      feedback.type === "success"
+                    className={`p-4 rounded-xl border flex items-start gap-3 text-xs leading-relaxed ${feedback.type === "success"
                         ? "border-green-500/20 bg-green-500/5 text-green-400"
                         : "border-red-500/20 bg-red-500/5 text-red-400"
-                    }`}
+                      }`}
                   >
                     {feedback.type === "success" ? (
                       <CheckCircle className="w-5 h-5 shrink-0 mt-0.5" />
@@ -456,7 +455,7 @@ export const Contact: React.FC = () => {
                     )}
                     <div className="flex flex-col gap-1.5 w-full">
                       <span>{feedback.text}</span>
-                      
+
                       {feedback.type === "error" && (
                         <a
                           href={`mailto:contact@krishmahajan.dev?subject=Portfolio%20Contact&body=${encodeURIComponent(

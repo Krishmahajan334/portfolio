@@ -19,7 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full antialiased scroll-smooth dark">
       <body className="min-h-full flex flex-col bg-[#050816] text-[#ededed] font-sans selection:bg-[#00F5FF]/30 selection:text-white overflow-x-hidden">
-        {children}
+        <main className="flex-1 w-full overflow-x-hidden">
+          {children}
+        </main>
         <InteractiveTerminal />
         <AntiScrapeShield />
       </body>

@@ -60,7 +60,7 @@ export const Footer: React.FC = () => {
     },
     {
       name: "Email",
-      href: "mailto:krishmahajan334@gmail.com",
+      href: "mailto:contact@krishmahajan.dev",
       icon: <Mail className="w-5 h-5" />,
       color: "hover:text-brand-purple hover:border-brand-purple hover:shadow-[0_0_10px_#7F5AF0]",
     },

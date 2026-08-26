@@ -171,14 +171,14 @@ export const InteractiveTerminal: React.FC = () => {
           <div className="space-y-1 text-gray-300 text-[11px] sm:text-xs text-left">
             <p className="text-white font-semibold">📄 Resume Download Node:</p>
             <p className="text-emerald-400 font-semibold animate-pulse">
-              [EXECUTION] Triggering transmission protocol for 'Krish_Mahajan_Resume.pdf'...
+              [EXECUTION] Triggering transmission protocol for 'Krish_Mahajan_Resume_P.pdf'...
             </p>
           </div>
         );
         if (typeof window !== "undefined") {
           const link = document.createElement("a");
-          link.href = "/Krish_Mahajan_Resume.pdf";
-          link.download = "Krish_Mahajan_Resume.pdf";
+          link.href = "/Krish_Mahajan_Resume_P.pdf";
+          link.download = "Krish_Mahajan_Resume_P.pdf";
           document.body.appendChild(link);
           link.click();
           document.body.removeChild(link);

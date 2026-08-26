@@ -259,8 +259,8 @@ export const Hero: React.FC = () => {
       setScanMessage("DECRYPTION SUCCESSFUL!");
       
       const link = document.createElement("a");
-      link.href = "/Krish_Mahajan_Resume.pdf";
-      link.setAttribute("download", "Krish_Mahajan_Resume.pdf");
+      link.href = "/Krish_Mahajan_Resume_P.pdf";
+      link.setAttribute("download", "Krish_Mahajan_Resume_P.pdf");
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);

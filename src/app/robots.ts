@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/private/',
     },
-    sitemap: 'https://krishmahajan.dev/sitemap.xml',
+    sitemap: 'https://www.krishmahajan.dev/sitemap.xml',
   };
 }

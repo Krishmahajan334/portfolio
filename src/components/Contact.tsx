@@ -373,7 +373,7 @@ export const Contact: React.FC = () => {
                     required
                     value={formData.email}
                     onChange={handleInputChange}
-                    placeholder="elon@spacex.com"
+                    placeholder="example@domain.com"
                     className="px-4 py-3 rounded-xl bg-[#050816]/70 border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-brand-purple/80 focus:shadow-[0_0_12px_rgba(127,90,240,0.2)] transition-all text-sm w-full font-sans"
                   />
                 </div>
@@ -444,8 +444,8 @@ export const Contact: React.FC = () => {
                 {feedback.type && (
                   <div
                     className={`p-4 rounded-xl border flex items-start gap-3 text-xs leading-relaxed ${feedback.type === "success"
-                        ? "border-green-500/20 bg-green-500/5 text-green-400"
-                        : "border-red-500/20 bg-red-500/5 text-red-400"
+                      ? "border-green-500/20 bg-green-500/5 text-green-400"
+                      : "border-red-500/20 bg-red-500/5 text-red-400"
                       }`}
                   >
                     {feedback.type === "success" ? (

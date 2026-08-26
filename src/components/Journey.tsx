@@ -115,7 +115,7 @@ export const Journey: React.FC = () => {
                   <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 top-6 w-4 h-4 rounded-full border-2 border-brand-cyan bg-[#050816] z-10 shadow-[0_0_10px_#00F5FF]" />
 
                   {/* Left Side spacer/card */}
-                  <div className={`md:w-[45%] ${isLeft ? "text-left" : "hidden md:block md:invisible"}`}>
+                  <div className={`hidden md:block md:w-[45%] ${isLeft ? "text-left" : "md:invisible"}`}>
                     {isLeft && (
                       <motion.div
                         initial={{ opacity: 0, x: -35, rotateY: -12, transformPerspective: 1000 }}
@@ -139,7 +139,7 @@ export const Journey: React.FC = () => {
                   <div className="hidden md:block md:w-[5%]" />
 
                   {/* Right Side spacer/card */}
-                  <div className={`md:w-[45%] ${!isLeft ? "text-left" : "hidden md:block md:invisible"}`}>
+                  <div className={`hidden md:block md:w-[45%] ${!isLeft ? "text-left" : "md:invisible"}`}>
                     {!isLeft && (
                       <motion.div
                         initial={{ opacity: 0, x: 35, rotateY: 12, transformPerspective: 1000 }}

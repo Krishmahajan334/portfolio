@@ -69,7 +69,7 @@ export const Footer: React.FC = () => {
   return (
     <footer className="relative w-full bg-[#03050e] border-t border-white/5 py-12 md:py-16 overflow-hidden">
       {/* Background radial highlight */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80%] h-[300px] bg-brand-purple/5 blur-[120px] rounded-full pointer-events-none z-0" />
+      <div className="hidden md:block absolute bottom-0 left-1/2 -translate-x-1/2 w-[80%] h-[300px] bg-brand-purple/5 blur-[120px] rounded-full pointer-events-none z-0" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10 flex flex-col items-center gap-8">
         {/* Brand / Logo */}

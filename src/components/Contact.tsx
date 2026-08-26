@@ -202,7 +202,7 @@ export const Contact: React.FC = () => {
     <section id="contact-form" className="relative w-full py-20 md:py-32 bg-[#050816] px-6 overflow-hidden">
       
       {/* Background spotlights */}
-      <div className="hidden md:block absolute top-[20%] left-[5%] w-[350px] h-[350px] bg-brand-cyan/5 blur-[125px] rounded-full pointer-events-none" />
+      <div className="absolute top-[20%] left-[5%] w-[350px] h-[350px] bg-brand-cyan/5 blur-[125px] rounded-full pointer-events-none" />
 
       <div className="max-w-5xl mx-auto relative z-10">
         

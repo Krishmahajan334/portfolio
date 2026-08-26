@@ -37,9 +37,6 @@ export const LineWaves: React.FC<LineWavesProps> = ({
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    const isMobile = window.matchMedia("(max-width: 768px)").matches;
-    if (isMobile) return;
-
     const container = containerRef.current;
     const canvas = canvasRef.current;
     if (!container || !canvas) return;

@@ -205,22 +205,16 @@ export const Hero: React.FC = () => {
   ];
 
   const [subIndex, setSubIndex] = useState(0);
-  const [isGraphicsMounted, setIsGraphicsMounted] = useState(false);
   const [downloadState, setDownloadState] = useState<"idle" | "scanning" | "decrypted">("idle");
   const [scanMessage, setScanMessage] = useState("Scan Initiated");
   const cardRef = useRef<HTMLDivElement>(null);
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
-    // Delay heavy WebGL initialization to prioritize HTML/CSS layout paint (fixes mobile slow load times)
-    const mountTimer = setTimeout(() => setIsGraphicsMounted(true), 150);
     const timer = setInterval(() => {
       setSubIndex((prev) => (prev + 1) % subtitles.length);
     }, 3000);
-    return () => {
-      clearInterval(timer);
-      clearTimeout(mountTimer);
-    };
+    return () => clearInterval(timer);
   }, []);
 
   const handleTilt = (e: React.MouseEvent) => {
@@ -309,10 +303,10 @@ export const Hero: React.FC = () => {
       style={{ minHeight: "100vh" }}
     >
       {/* Dynamic line wave shader */}
-      {isGraphicsMounted && <LineWaves />}
+      <LineWaves />
 
       {/* HTML5 3D Perspective Projection Constellation Canvas */}
-      {isGraphicsMounted && <Canvas3DParticles />}
+      <Canvas3DParticles />
 
       {/* Cinematic Ambient mesh spotlights with drift animations */}
       <div className="absolute top-[15%] left-[5%] w-[45vw] h-[45vw] bg-brand-cyan/5 rounded-full blur-[140px] pointer-events-none z-0 animate-spotlight-drift" />

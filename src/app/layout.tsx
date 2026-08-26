@@ -14,12 +14,17 @@ export const metadata: Metadata = {
     "Krish KV",
     "Krish Mahajan NCSC",
     "Krish Mahajan NCSC winner",
+    "Krish Mahajan CSE",
+    "Krish Mahajan DKTE",
+    "ACSES president DKTE",
+    "DKTE ACSES president",
     "Junior Scientist",
     "Full Stack Developer",
     "Software Engineer",
     "ACSES President",
     "IIoT Specialist",
-    "Computer Science Engineer"
+    "Computer Science Engineer",
+    "DKTE Engineering Student"
   ],
   authors: [{ name: "Krish Mahajan", url: "https://krishmahajan.dev" }],
   creator: "Krish Mahajan",

@@ -93,93 +93,119 @@ const links = [
 
 export default function LinksPage() {
   return (
-    <div className="min-h-screen bg-[#050816] text-white flex flex-col items-center py-16 px-4 relative overflow-hidden">
+    <div className="min-h-screen bg-[#050816] text-white flex flex-col items-center py-12 px-4 relative overflow-hidden">
       {/* Animated Background Elements */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-[100px] -z-10" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-[100px] -z-10" />
+      <div className="absolute top-1/4 left-0 w-96 h-96 bg-cyan-900/20 rounded-full blur-[120px] -z-10 animate-pulse" />
+      <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-emerald-900/20 rounded-full blur-[120px] -z-10 animate-pulse delay-1000" />
 
       {/* Back Button */}
-      <div className="w-full max-w-md mb-8">
+      <div className="w-full max-w-lg mb-6">
         <Link 
           href="/"
-          className="inline-flex items-center text-gray-400 hover:text-cyan-400 transition-colors duration-300 text-sm font-mono"
+          className="inline-flex items-center text-gray-500 hover:text-cyan-400 transition-colors duration-300 text-xs font-mono"
         >
           <ArrowLeftIcon className="w-4 h-4 mr-2" />
-          BACK_TO_MAIN
+          cd /home/portfolio
         </Link>
       </div>
 
-      {/* Profile Header */}
-      <motion.div
+      {/* Terminal Window Wrapper */}
+      <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="text-center mb-10"
+        className="w-full max-w-lg bg-[#0a0d1c]/90 backdrop-blur-xl border border-white/10 rounded-xl overflow-hidden shadow-2xl shadow-cyan-900/20"
       >
-        <div className="relative w-28 h-28 mx-auto mb-6">
-          <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-emerald-400 rounded-full animate-spin-slow opacity-50 blur-md" />
-          <div className="relative w-full h-full bg-[#0a0d1c] rounded-full border border-cyan-500/30 p-1 flex items-center justify-center overflow-hidden">
-            {/* Fallback avatar if image fails to load, or use actual image */}
-            <img 
-              src="/krish PASSPORT200kb.png" 
-              alt="Krish Mahajan"
-              className="w-full h-full rounded-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
-            />
+        {/* Terminal Header */}
+        <div className="flex items-center px-4 py-3 border-b border-white/10 bg-white/5">
+          <div className="flex space-x-2">
+            <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
+            <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+            <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
+          </div>
+          <div className="mx-auto text-gray-400 text-xs font-mono">
+            krishmahajan@server: ~/links
           </div>
         </div>
-        
-        <h1 className="text-3xl font-bold mb-2 tracking-wider">KRISH MAHAJAN</h1>
-        <p className="text-cyan-400 font-mono text-sm mb-4 tracking-widest">FULL STACK DEVELOPER</p>
-        <p className="text-gray-400 text-sm max-w-sm mx-auto">
-          Crafting high-performance software, intelligent systems, and scalable tech solutions.
-        </p>
-      </motion.div>
 
-      {/* Link Tree */}
-      <div className="w-full max-w-md space-y-4">
-        {links.map((link, index) => (
-          <motion.a
-            key={link.name}
-            href={link.url}
-            target={link.url.startsWith("http") ? "_blank" : undefined}
-            rel={link.url.startsWith("http") ? "noopener noreferrer" : undefined}
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 * index }}
-            className="group relative flex items-center p-4 w-full bg-[#0a0d1c]/80 backdrop-blur-sm border border-cyan-500/20 rounded-xl overflow-hidden hover:border-cyan-400/50 transition-all duration-300"
-          >
-            {/* Hover Gradient Background */}
-            <div className={`absolute inset-0 opacity-0 group-hover:opacity-10 bg-gradient-to-r ${link.color} transition-opacity duration-300`} />
-            
-            {/* Glowing Edge on Hover */}
-            <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-transparent via-cyan-400 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-            {/* Icon */}
-            <div className={`flex items-center justify-center w-10 h-10 rounded-full bg-white/5 mr-4 text-gray-300 group-hover:text-white transition-colors duration-300`}>
-              {link.icon}
+        {/* Terminal Body */}
+        <div className="p-6 sm:p-8">
+          {/* Profile Header */}
+          <div className="text-center mb-8">
+            <div className="relative w-28 h-28 mx-auto mb-6">
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-emerald-500 rounded-full animate-spin-slow opacity-30 blur-md" />
+              <div className="relative w-full h-full bg-[#0a0d1c] rounded-full border border-cyan-500/50 p-1 flex items-center justify-center overflow-hidden">
+                <img 
+                  src="/krish PASSPORT200kb.png" 
+                  alt="Krish Mahajan"
+                  className="w-full h-full rounded-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                />
+              </div>
             </div>
+            
+            <h1 className="text-2xl font-bold mb-4 tracking-wider text-white drop-shadow-[0_0_15px_rgba(34,211,238,0.5)]">
+              Krish Mahajan
+            </h1>
+            
+            {/* Linktree Bio */}
+            <div className="text-sm mx-auto space-y-2 text-left font-mono bg-black/40 p-4 rounded-lg border border-cyan-500/20 text-gray-300">
+              <p className="text-cyan-400 font-semibold border-b border-cyan-900/50 pb-2 mb-2">
+                Junior Scientist | B.Tech CSE @ DKTE
+              </p>
+              <p className="flex items-center gap-2"><span>🏅</span> National Technology Week 2023 Honoree</p>
+              <p className="flex items-center gap-2"><span>🎓</span> Campus Mantri @ GeeksforGeeks</p>
+              <p className="flex items-center gap-2"><span>💻</span> ACSES President</p>
+              <p className="flex items-center gap-2"><span>🤖</span> IoT & AI Enthusiast | ATL Alumni</p>
+            </div>
+          </div>
 
-            {/* Label */}
-            <span className="font-semibold tracking-wide text-gray-200 group-hover:text-white transition-colors duration-300">
-              {link.name}
-            </span>
+          {/* Link Tree */}
+          <div className="w-full space-y-4">
+            {links.map((link, index) => (
+              <motion.a
+                key={link.name}
+                href={link.url}
+                target={link.url.startsWith("http") ? "_blank" : undefined}
+                rel={link.url.startsWith("http") ? "noopener noreferrer" : undefined}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 * index }}
+                className="group relative flex items-center p-4 w-full bg-black/40 backdrop-blur-sm border border-white/5 rounded-lg overflow-hidden hover:border-cyan-500/50 transition-all duration-300"
+              >
+                {/* Hover Gradient Background */}
+                <div className={`absolute inset-0 opacity-0 group-hover:opacity-10 bg-gradient-to-r ${link.color} transition-opacity duration-300`} />
+                
+                {/* Glowing Edge on Hover */}
+                <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-transparent via-cyan-400 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-            {/* External Link Indicator */}
-            {link.url.startsWith("http") && (
-              <svg className="w-4 h-4 ml-auto text-gray-500 group-hover:text-cyan-400 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-              </svg>
-            )}
-          </motion.a>
-        ))}
-      </div>
+                {/* Icon */}
+                <div className="flex items-center justify-center w-10 h-10 rounded-full bg-white/5 mr-4 text-gray-400 group-hover:text-cyan-400 transition-colors duration-300">
+                  {link.icon}
+                </div>
+
+                {/* Label */}
+                <span className="font-mono text-sm tracking-wide text-gray-300 group-hover:text-white transition-colors duration-300">
+                  {link.name}
+                </span>
+
+                {/* External Link Indicator */}
+                {link.url.startsWith("http") && (
+                  <svg className="w-4 h-4 ml-auto text-gray-600 group-hover:text-cyan-400 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                )}
+              </motion.a>
+            ))}
+          </div>
+        </div>
+      </motion.div>
 
       {/* Footer */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.8 }}
-        className="mt-12 text-gray-500 text-xs font-mono"
+        className="mt-8 text-gray-600 text-xs font-mono"
       >
         © {new Date().getFullYear()} krishmahajan.dev
       </motion.div>

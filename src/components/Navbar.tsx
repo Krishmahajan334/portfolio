@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Terminal, Cpu, Sparkles, Wrench, Layers, Award, GitBranch, Mail } from "lucide-react";
+import { Menu, X, Terminal, Cpu, Sparkles, Wrench, Layers, Award, GitBranch, Mail, Image as ImageIcon } from "lucide-react";
 
 export const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -15,6 +15,7 @@ export const Navbar: React.FC = () => {
     { name: "Skills", href: "#skills" },
     { name: "Projects", href: "#projects" },
     { name: "Journey", href: "#journey" },
+    { name: "Gallery", href: "/gallery" },
     { name: "GitHub", href: "#github-activity" },
     { name: "Contact", href: "#contact-form" },
   ];
@@ -25,6 +26,7 @@ export const Navbar: React.FC = () => {
     Skills: <Wrench className="w-4 h-4 text-brand-cyan" />,
     Projects: <Layers className="w-4 h-4 text-brand-cyan" />,
     Journey: <Award className="w-4 h-4 text-brand-cyan" />,
+    Gallery: <ImageIcon className="w-4 h-4 text-brand-cyan" />,
     GitHub: <GitBranch className="w-4 h-4 text-brand-cyan" />,
     Contact: <Mail className="w-4 h-4 text-brand-cyan" />,
   };
@@ -49,6 +51,7 @@ export const Navbar: React.FC = () => {
       let currentSection = "home";
 
       for (const sectionId of sections) {
+        if (sectionId === "gallery" || sectionId.startsWith("/")) continue; // Skip non-hash links
         const el = document.getElementById(sectionId);
         if (el) {
           const rect = el.getBoundingClientRect();

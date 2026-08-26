@@ -16,9 +16,17 @@ interface JourneyItem {
 export const Journey: React.FC = () => {
   const journeyItems: JourneyItem[] = [
     {
+      title: "President of Association of Computer Sciences and Engineering Students (ACSES)",
+      subtitle: "D.K.T.E. Society's Textile and Engineering Institute",
+      duration: "July 2026 – present",
+      description: "Leading the student association, organizing technical events, fostering a collaborative coding environment, and bridging the gap between academia and industry through workshops and seminars.",
+      icon: <Award className="w-5 h-5" />,
+      align: "left",
+    },
+    {
       title: "Campus Mantri @ GeeksforGeeks",
       subtitle: "Technical Outreach Leader",
-      duration: "Jan 2026 – Present",
+      duration: "Jan 2026 – June 2026",
       description: "Leading CS technical outreach initiatives to accelerate student engagement with algorithms and problem-solving platforms. Organizing workshops and structuring presentations on data structures.",
       icon: <Award className="w-5 h-5" />,
       align: "right",
@@ -51,12 +59,12 @@ export const Journey: React.FC = () => {
 
   return (
     <section id="journey" className="relative w-full py-20 md:py-32 bg-[#050816] px-6">
-      
+
       {/* Background visual detail */}
       <div className="absolute top-[20%] left-[5%] w-[350px] h-[350px] bg-brand-cyan/5 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="max-w-6xl mx-auto">
-        
+
         {/* Section Title */}
         <div className="text-center mb-16 md:mb-24">
           <motion.div
@@ -69,7 +77,7 @@ export const Journey: React.FC = () => {
             <Sparkles className="w-3.5 h-3.5" />
             <span>Milestones & Nodes</span>
           </motion.div>
-          
+
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -79,7 +87,7 @@ export const Journey: React.FC = () => {
           >
             My <span className="shimmer-text-cyan font-bold">Journey Timeline</span>
           </motion.h2>
-          
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -99,10 +107,10 @@ export const Journey: React.FC = () => {
           <div className="space-y-12 md:space-y-20">
             {journeyItems.map((item, index) => {
               const isLeft = item.align === "left";
-              
+
               return (
                 <div key={item.title} className="relative md:flex justify-between items-start">
-                  
+
                   {/* Timeline node dot */}
                   <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 top-6 w-4 h-4 rounded-full border-2 border-brand-cyan bg-[#050816] z-10 shadow-[0_0_10px_#00F5FF]" />
 
@@ -153,13 +161,13 @@ export const Journey: React.FC = () => {
 
                   {/* Fallback Mobile layout (only visible on small screens) */}
                   <div className="block md:hidden text-left">
-                      <motion.div
-                        initial={{ opacity: 0, y: 30, rotateX: 12, transformPerspective: 1000 }}
-                        whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                        className="glass-panel p-6 rounded-2xl border border-white/5"
-                      >
+                    <motion.div
+                      initial={{ opacity: 0, y: 30, rotateX: 12, transformPerspective: 1000 }}
+                      whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6 }}
+                      className="glass-panel p-6 rounded-2xl border border-white/5"
+                    >
                       <div className="flex items-center gap-2 mb-2 text-brand-cyan text-xs font-semibold uppercase">
                         {item.icon}
                         <span>{item.duration}</span>

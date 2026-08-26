@@ -2,8 +2,9 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Sparkles, FlaskConical, Layers, BookOpen, GraduationCap, ArrowRight, Download, Mail, Star, Heart, ChevronDown, ChevronUp } from "lucide-react";
+import { Sparkles, FlaskConical, Layers, BookOpen, GraduationCap, ArrowRight, Download, Mail, Star, Heart, ChevronDown, ChevronUp, Image as ImageIcon } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { TiltCard } from "./TiltCard";
 
 interface TimelineEvent {
@@ -14,6 +15,8 @@ interface TimelineEvent {
   description: string;
   icon: React.ReactNode;
   badge?: string;
+  galleryId?: string;
+  thumbnailUrl?: string;
   color: string;
   accent: string;
 }
@@ -89,6 +92,7 @@ export const About: React.FC = () => {
       description: "Entering the NCSC arena, Krish achieved First Prize and National selection at KV DRDO Bengaluru. He advanced to the highly competitive Open Nationals/International level at SAL Education Campus, Ahmedabad, organized by GUJCOST, DST, and NCSTC. Honored as an official 'Child Scientist', he etched his name in KVS history as the first student from the entire KVS Jammu Region to reach the Open Nationals in NCSC history.",
       icon: <BookOpen className="w-5 h-5" />,
       badge: "Open Nationals Child Scientist",
+      galleryId: "ncsc",
       color: "border-brand-cyan/20 bg-brand-cyan/5 text-brand-cyan shadow-[0_0_20px_rgba(0,245,255,0.05)]",
       accent: "bg-brand-cyan",
     },
@@ -100,6 +104,8 @@ export const About: React.FC = () => {
       description: "Following selections in the ATL Marathon and ranking in the Top 36 teams nationally in Youth Co:Lab by UNDP, Krish was invited by the Atal Innovation Mission, NITI Aayog, to showcase his 'Hand Gesture Vocalizer' (HGV) at National Technology Week 2023 in Delhi. Presenting among the country's elite selected innovators directly to national leaders and delegates, he was recognized as a Junior Scientist associated with the Ministry of Science & Technology.",
       icon: <GraduationCap className="w-5 h-5" />,
       badge: "NITI Aayog National Technology Week Showcase",
+      galleryId: "niti-aayog",
+      thumbnailUrl: "/gallery/niti-aayog/pmKrish.jpg",
       color: "border-brand-green/20 bg-brand-green/5 text-brand-green shadow-[0_0_20px_rgba(29,205,159,0.05)]",
       accent: "bg-brand-green",
     },
@@ -307,20 +313,43 @@ export const About: React.FC = () => {
                           </div>
                         </div>
 
+                        {/* Featured Image (if any) */}
+                        {event.thumbnailUrl && (
+                          <div className="w-full h-48 md:h-64 lg:h-72 relative rounded-xl overflow-hidden mb-6 border border-white/10 shadow-lg group-hover:border-brand-cyan/30 transition-all duration-500">
+                            <Image
+                              src={event.thumbnailUrl}
+                              alt={event.title}
+                              fill
+                              className="object-cover group-hover:scale-105 transition-transform duration-700"
+                              sizes="(max-width: 768px) 100vw, 800px"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-[#050816]/60 via-transparent to-transparent" />
+                          </div>
+                        )}
+
                         {/* Narration Description */}
                         <p className="text-gray-300 font-sans font-light text-base md:text-lg leading-relaxed">
                           {event.description}
                         </p>
 
-                        {/* Chapter Highlights Badge */}
-                        {event.badge && (
-                          <div className="mt-6 flex flex-wrap gap-2">
+                        {/* Chapter Highlights Badge & Gallery */}
+                        <div className="mt-6 flex flex-wrap items-center gap-3">
+                          {event.badge && (
                             <span className="px-3 py-1 rounded-lg text-[10px] sm:text-xs font-heading font-bold uppercase tracking-wider bg-white/5 border border-white/5 text-gray-400 flex items-center gap-1.5">
                               <Sparkles className="w-3.5 h-3.5 text-brand-cyan animate-pulse" />
                               {event.badge}
                             </span>
+                          )}
+                          
+                          <div className="flex items-center gap-2">
+                            {event.galleryId && (
+                              <Link href={`/gallery/${event.galleryId}`} className="px-4 py-1.5 rounded-lg text-[10px] sm:text-xs font-heading font-bold uppercase tracking-wider bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan flex items-center gap-2 hover:bg-brand-cyan hover:text-black hover:shadow-[0_0_15px_rgba(0,245,255,0.4)] transition-all duration-300">
+                                <ImageIcon className="w-3.5 h-3.5" />
+                                View Gallery
+                              </Link>
+                            )}
                           </div>
-                        )}
+                        </div>
                       </div>
 
                     </motion.div>

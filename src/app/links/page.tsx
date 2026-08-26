@@ -95,16 +95,19 @@ export default function LinksPage() {
   return (
     <div className="min-h-screen bg-[#050816] text-white flex flex-col items-center py-12 px-4 relative overflow-hidden">
       {/* Animated Background Elements */}
-      <div className="absolute top-1/4 left-0 w-96 h-96 bg-cyan-900/20 rounded-full blur-[120px] -z-10 animate-pulse" />
-      <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-emerald-900/20 rounded-full blur-[120px] -z-10 animate-pulse delay-1000" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#082f49_1px,transparent_1px),linear-gradient(to_bottom,#082f49_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none opacity-50" />
+      
+      <div className="absolute top-1/4 -left-20 w-96 h-96 bg-cyan-900/40 rounded-full blur-[120px] -z-10 animate-pulse" />
+      <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-emerald-900/30 rounded-full blur-[120px] -z-10 animate-pulse delay-1000" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-blue-900/10 rounded-full blur-[150px] -z-10" />
 
       {/* Back Button */}
-      <div className="w-full max-w-lg mb-6">
+      <div className="w-full max-w-lg mb-6 relative z-10">
         <Link 
           href="/"
-          className="inline-flex items-center text-gray-500 hover:text-cyan-400 transition-colors duration-300 text-xs font-mono"
+          className="inline-flex items-center text-gray-400 hover:text-cyan-400 transition-all duration-300 text-xs font-mono group"
         >
-          <ArrowLeftIcon className="w-4 h-4 mr-2" />
+          <ArrowLeftIcon className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
           cd /home/portfolio
         </Link>
       </div>
@@ -114,16 +117,16 @@ export default function LinksPage() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="w-full max-w-lg bg-[#0a0d1c]/90 backdrop-blur-xl border border-white/10 rounded-xl overflow-hidden shadow-2xl shadow-cyan-900/20"
+        className="w-full max-w-lg bg-[#0a0d1c]/80 backdrop-blur-2xl border border-white/10 rounded-xl overflow-hidden shadow-[0_0_40px_rgba(8,145,178,0.2)] relative z-10"
       >
         {/* Terminal Header */}
         <div className="flex items-center px-4 py-3 border-b border-white/10 bg-white/5">
           <div className="flex space-x-2">
-            <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
-            <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
-            <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
+            <div className="w-3 h-3 rounded-full bg-red-500/80 shadow-[0_0_5px_rgba(239,68,68,0.5)]"></div>
+            <div className="w-3 h-3 rounded-full bg-yellow-500/80 shadow-[0_0_5px_rgba(234,179,8,0.5)]"></div>
+            <div className="w-3 h-3 rounded-full bg-green-500/80 shadow-[0_0_5px_rgba(34,197,94,0.5)]"></div>
           </div>
-          <div className="mx-auto text-gray-400 text-xs font-mono">
+          <div className="mx-auto text-cyan-500/70 text-xs font-mono">
             krishmahajan@server: ~/links
           </div>
         </div>
@@ -131,14 +134,17 @@ export default function LinksPage() {
         {/* Terminal Body */}
         <div className="p-6 sm:p-8">
           {/* Profile Header */}
-          <div className="text-center mb-8">
+          <div className="text-center mb-8 relative">
+            {/* Glowing orb behind avatar */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-cyan-500/20 blur-2xl rounded-full" />
+            
             <div className="relative w-28 h-28 mx-auto mb-6">
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-emerald-500 rounded-full animate-spin-slow opacity-30 blur-md" />
-              <div className="relative w-full h-full bg-[#0a0d1c] rounded-full border border-cyan-500/50 p-1 flex items-center justify-center overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-emerald-500 rounded-full animate-spin-slow opacity-50 blur-md" />
+              <div className="relative w-full h-full bg-[#0a0d1c] rounded-full border-2 border-cyan-500/50 p-1 flex items-center justify-center overflow-hidden shadow-[0_0_20px_rgba(34,211,238,0.3)]">
                 <img 
                   src="/krish PASSPORT200kb.png" 
                   alt="Krish Mahajan"
-                  className="w-full h-full rounded-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                  className="w-full h-full rounded-full object-cover grayscale-0 hover:grayscale transition-all duration-500"
                 />
               </div>
             </div>

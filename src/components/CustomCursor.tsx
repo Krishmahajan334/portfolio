@@ -10,8 +10,8 @@ export const CustomCursor: React.FC = () => {
   const [elementRadius, setElementRadius] = useState("9999px");
 
   useEffect(() => {
-    // Disable custom cursor automatically on mobile/touch interfaces
-    const isDesktop = window.matchMedia("(pointer: fine)").matches;
+    // Disable custom cursor automatically on mobile/tablet interfaces
+    const isDesktop = window.innerWidth >= 1024;
     if (!isDesktop) return;
 
     setIsVisible(true);

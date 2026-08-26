@@ -65,7 +65,7 @@ export default function GalleryPage() {
   return (
     <div className="min-h-screen bg-[#050816] flex flex-col relative overflow-hidden">
       {/* Background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-cyan/5 blur-[160px] rounded-full pointer-events-none z-0" />
+      <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-cyan/5 blur-[160px] rounded-full pointer-events-none z-0" />
       
       {/* Header */}
       <header className="relative z-20 flex items-center justify-between p-6 border-b border-white/10 bg-black/50 backdrop-blur-md">

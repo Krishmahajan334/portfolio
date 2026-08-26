@@ -23,16 +23,6 @@ interface TimelineEvent {
 
 export const About: React.FC = () => {
   const [downloading, setDownloading] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   const triggerDownload = () => {
     setDownloading(true);
@@ -124,8 +114,8 @@ export const About: React.FC = () => {
   return (
     <section id="about" className="relative w-full py-20 md:py-32 bg-[#050816] px-6 overflow-hidden">
       {/* Background radial glow */}
-      <div className="absolute top-[20%] right-[-10%] w-[500px] h-[500px] bg-brand-cyan/5 blur-[160px] rounded-full pointer-events-none z-0" />
-      <div className="absolute bottom-[20%] left-[-10%] w-[500px] h-[500px] bg-brand-purple/5 blur-[160px] rounded-full pointer-events-none z-0" />
+      <div className="hidden md:block absolute top-[20%] right-[-10%] w-[500px] h-[500px] bg-brand-cyan/5 blur-[160px] rounded-full pointer-events-none z-0" />
+      <div className="hidden md:block absolute bottom-[20%] left-[-10%] w-[500px] h-[500px] bg-brand-purple/5 blur-[160px] rounded-full pointer-events-none z-0" />
 
       <div className="max-w-6xl mx-auto relative z-10">
         

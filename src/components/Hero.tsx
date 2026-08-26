@@ -315,13 +315,13 @@ export const Hero: React.FC = () => {
       {isGraphicsMounted && <Canvas3DParticles />}
 
       {/* Cinematic Ambient mesh spotlights with drift animations */}
-      <div className="absolute top-[15%] left-[5%] w-[45vw] h-[45vw] bg-brand-cyan/5 rounded-full blur-[140px] pointer-events-none z-0 animate-spotlight-drift" />
-      <div className="absolute bottom-[15%] right-[5%] w-[45vw] h-[45vw] bg-brand-purple/5 rounded-full blur-[140px] pointer-events-none z-0 animate-spotlight-drift [animation-delay:4s]" />
+      <div className="hidden md:block absolute top-[15%] left-[5%] w-[45vw] h-[45vw] bg-brand-cyan/5 rounded-full blur-[140px] pointer-events-none z-0 animate-spotlight-drift" />
+      <div className="hidden md:block absolute bottom-[15%] right-[5%] w-[45vw] h-[45vw] bg-brand-purple/5 rounded-full blur-[140px] pointer-events-none z-0 animate-spotlight-drift [animation-delay:4s]" />
 
       <div className="max-w-6xl mx-auto w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center px-6 sm:px-12 py-12 md:py-16 rounded-3xl border border-white/5 bg-gradient-to-br from-[#0a0f26]/40 to-[#03050e]/60 backdrop-blur-[3px] shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden">
         {/* Decorative Internal Glowing Spotlight Mesh in background */}
-        <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-brand-cyan/5 rounded-full blur-[100px] pointer-events-none z-0" />
-        <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-brand-purple/5 rounded-full blur-[100px] pointer-events-none z-0" />
+        <div className="hidden md:block absolute top-0 right-0 w-[300px] h-[300px] bg-brand-cyan/5 rounded-full blur-[100px] pointer-events-none z-0" />
+        <div className="hidden md:block absolute bottom-0 left-0 w-[300px] h-[300px] bg-brand-purple/5 rounded-full blur-[100px] pointer-events-none z-0" />
         {/* Tech Grid Pattern Overlay */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff01_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:24px_24px] opacity-60 pointer-events-none" />
         

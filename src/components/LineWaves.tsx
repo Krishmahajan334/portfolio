@@ -271,12 +271,14 @@ export const LineWaves: React.FC<LineWavesProps> = ({
     }
 
     const resize = () => {
-      const w = container.clientWidth || window.innerWidth;
-      const h = container.clientHeight || window.innerHeight;
-      canvas.width = w;
-      canvas.height = h;
-      gl.viewport(0, 0, w, h);
-      gl.uniform2f(uResLoc, w, h);
+      const isMobile = window.innerWidth < 768;
+      const pixelRatio = isMobile ? 0.5 : 1.0;
+      const w = (container.clientWidth || window.innerWidth);
+      const h = (container.clientHeight || window.innerHeight);
+      canvas.width = w * pixelRatio;
+      canvas.height = h * pixelRatio;
+      gl.viewport(0, 0, canvas.width, canvas.height);
+      gl.uniform2f(uResLoc, canvas.width, canvas.height);
     };
 
     window.addEventListener("resize", resize);

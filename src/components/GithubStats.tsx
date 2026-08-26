@@ -260,8 +260,8 @@ export const GithubStats: React.FC = () => {
   return (
     <section id="github-activity" className="relative w-full py-20 md:py-32 bg-[#050816] px-4 sm:px-6 md:px-8">
       {/* Background neon flares */}
-      <div className="absolute top-[10%] left-[5%] w-[400px] h-[400px] bg-brand-cyan/5 blur-[130px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-[10%] right-[5%] w-[400px] h-[400px] bg-brand-purple/5 blur-[130px] rounded-full pointer-events-none" />
+      <div className="hidden md:block absolute top-[10%] left-[5%] w-[400px] h-[400px] bg-brand-cyan/5 blur-[130px] rounded-full pointer-events-none" />
+      <div className="hidden md:block absolute bottom-[10%] right-[5%] w-[400px] h-[400px] bg-brand-purple/5 blur-[130px] rounded-full pointer-events-none" />
 
       <div className="max-w-6xl mx-auto">
         

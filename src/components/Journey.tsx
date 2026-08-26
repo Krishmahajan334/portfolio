@@ -61,7 +61,7 @@ export const Journey: React.FC = () => {
     <section id="journey" className="relative w-full py-20 md:py-32 bg-[#050816] px-6">
 
       {/* Background visual detail */}
-      <div className="absolute top-[20%] left-[5%] w-[350px] h-[350px] bg-brand-cyan/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="hidden md:block absolute top-[20%] left-[5%] w-[350px] h-[350px] bg-brand-cyan/5 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="max-w-6xl mx-auto">
 

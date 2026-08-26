@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { InteractiveTerminal } from "@/components/InteractiveTerminal";
 import { AntiScrapeShield } from "@/components/AntiScrapeShield";
+import { CustomCursor } from "@/components/CustomCursor";
 
 export const metadata: Metadata = {
   title: "Krish Mahajan | Computer Science Engineer & Tech Innovator",
@@ -24,6 +25,7 @@ export default function RootLayout({
         </main>
         <InteractiveTerminal />
         <AntiScrapeShield />
+        <CustomCursor />
       </body>
     </html>
   );

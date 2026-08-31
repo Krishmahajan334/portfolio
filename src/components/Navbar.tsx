@@ -160,14 +160,6 @@ export const Navbar: React.FC = () => {
 
           {/* Mobile Menu Toggle & Watermark */}
           <div className="flex md:hidden items-center gap-3">
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-all"
-              aria-label="Toggle mobile menu"
-            >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-
             <a href="/" className="cursor-pointer transition-opacity hover:opacity-100">
               <img
                 src="/assets/watermark_logo_light.png"
@@ -175,6 +167,14 @@ export const Navbar: React.FC = () => {
                 className="h-7 w-auto object-contain opacity-50 select-none"
               />
             </a>
+
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="p-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-all"
+              aria-label="Toggle mobile menu"
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
           </div>
         </div>
 

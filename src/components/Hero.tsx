@@ -470,21 +470,21 @@ export const Hero: React.FC = () => {
         </motion.div>
 
         {/* Right Side: Interactive Concentric Glow Rings (Responsive hides or sizes) */}
-        <div className="lg:col-span-4 relative flex justify-center items-center h-[260px] lg:h-[400px] pointer-events-none select-none">
+        <div className="lg:col-span-4 absolute -bottom-12 -right-12 lg:relative lg:bottom-auto lg:right-auto opacity-15 lg:opacity-100 flex justify-center items-center h-[200px] w-[200px] lg:w-auto lg:h-[400px] pointer-events-none select-none z-0">
           {/* Spinning orbits */}
-          <div className="absolute w-[200px] h-[200px] sm:w-[280px] sm:h-[280px] rounded-full border border-white/5 animate-spin [animation-duration:50s]" />
-          <div className="absolute w-[150px] h-[150px] sm:w-[220px] sm:h-[220px] rounded-full border border-dashed border-white/10 animate-spin [animation-duration:25s] [animation-direction:reverse]" />
+          <div className="absolute w-[160px] h-[160px] sm:w-[280px] sm:h-[280px] rounded-full border border-white/10 animate-spin [animation-duration:50s]" />
+          <div className="absolute w-[120px] h-[120px] sm:w-[220px] sm:h-[220px] rounded-full border border-dashed border-white/20 animate-spin [animation-duration:25s] [animation-direction:reverse]" />
 
           {/* Central Core indicator */}
           <motion.div
             animate={{ scale: [1, 1.04, 1] }}
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            className="w-[90px] h-[90px] sm:w-[130px] sm:h-[130px] rounded-full border border-brand-cyan/20 bg-brand-cyan/5 backdrop-blur-[3px] flex flex-col justify-center items-center shadow-[0_0_40px_rgba(0,245,255,0.08)]"
+            className="w-[70px] h-[70px] sm:w-[130px] sm:h-[130px] rounded-full border border-brand-cyan/20 bg-brand-cyan/10 backdrop-blur-[3px] flex flex-col justify-center items-center shadow-[0_0_40px_rgba(0,245,255,0.08)]"
           >
             <img
               src="/assets/watermark_logo_light.png"
               alt="Krish Mahajan Watermark"
-              className="w-[50px] h-[50px] sm:w-[80px] sm:h-[80px] object-contain animate-pulse"
+              className="w-[40px] h-[40px] sm:w-[80px] sm:h-[80px] object-contain animate-pulse"
             />
           </motion.div>
         </div>

@@ -186,7 +186,7 @@ export const Navbar: React.FC = () => {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="absolute top-full left-0 w-full z-30 bg-[#050816]/95 backdrop-blur-xl border-b border-white/10 md:hidden overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8)]"
+              className="absolute top-full left-0 w-full z-30 bg-[#050816]/95 backdrop-blur-xl border-b border-white/10 md:hidden overflow-y-auto shadow-[0_20px_50px_rgba(0,0,0,0.8)] max-h-[calc(100dvh-70px)]"
             >
               <div className="px-6 py-8 flex flex-col gap-4">
                 {navLinks.map((link) => {

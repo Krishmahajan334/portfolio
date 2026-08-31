@@ -142,7 +142,7 @@ export default function LinksPage() {
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-emerald-500 rounded-full animate-spin-slow opacity-50 blur-md" />
               <div className="relative w-full h-full bg-[#0a0d1c] rounded-full border-2 border-cyan-500/50 p-1 flex items-center justify-center overflow-hidden shadow-[0_0_20px_rgba(34,211,238,0.3)]">
                 <img 
-                  src="/krish PASSPORT200kb.png" 
+                  src="/IMG_7469.PNG" 
                   alt="Krish Mahajan"
                   className="w-full h-full rounded-full object-cover grayscale-0 hover:grayscale transition-all duration-500"
                 />

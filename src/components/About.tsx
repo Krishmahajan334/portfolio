@@ -158,7 +158,7 @@ export const About: React.FC = () => {
                 <div className="absolute inset-0 bg-gradient-to-tr from-brand-cyan via-brand-cyan/40 to-brand-purple opacity-20 group-hover:opacity-100 transition-opacity duration-700 blur" />
                 <div className="relative w-full h-full rounded-xl overflow-hidden bg-[#03050e] border border-white/10 flex justify-center items-center group-hover:border-brand-cyan/50 transition-all duration-500">
                   <Image
-                    src="/krish PASSPORT200kb.png"
+                    src="/IMG_7469.PNG"
                     alt="Krish Mahajan Child Scientist & CS Engineer"
                     fill
                     className="object-cover scale-100 group-hover:scale-105 group-hover:brightness-110 filter grayscale-0 group-hover:grayscale transition-all duration-700"

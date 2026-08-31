@@ -318,7 +318,7 @@ export const Hero: React.FC = () => {
       <div className="hidden md:block absolute top-[15%] left-[5%] w-[45vw] h-[45vw] bg-brand-cyan/5 rounded-full blur-[140px] pointer-events-none z-0 animate-spotlight-drift" />
       <div className="hidden md:block absolute bottom-[15%] right-[5%] w-[45vw] h-[45vw] bg-brand-purple/5 rounded-full blur-[140px] pointer-events-none z-0 animate-spotlight-drift [animation-delay:4s]" />
 
-      <div className="max-w-6xl mx-auto w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center px-6 sm:px-12 py-12 md:py-16 rounded-3xl border border-white/5 bg-gradient-to-br from-[#0a0f26]/40 to-[#03050e]/60 backdrop-blur-[3px] shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden">
+      <div className="max-w-6xl mx-auto w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center px-6 sm:px-12 py-8 lg:py-16 rounded-3xl border border-white/5 bg-gradient-to-br from-[#0a0f26]/40 to-[#03050e]/60 backdrop-blur-[3px] shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden">
         {/* Decorative Internal Glowing Spotlight Mesh in background */}
         <div className="hidden md:block absolute top-0 right-0 w-[300px] h-[300px] bg-brand-cyan/5 rounded-full blur-[100px] pointer-events-none z-0" />
         <div className="hidden md:block absolute bottom-0 left-0 w-[300px] h-[300px] bg-brand-purple/5 rounded-full blur-[100px] pointer-events-none z-0" />
@@ -472,8 +472,8 @@ export const Hero: React.FC = () => {
         {/* Right Side: Interactive Concentric Glow Rings (Responsive hides or sizes) */}
         <div className="lg:col-span-4 relative flex justify-center items-center h-[260px] lg:h-[400px] pointer-events-none select-none">
           {/* Spinning orbits */}
-          <div className="absolute w-[200px] h-[200px] sm:w-[280px] sm:h-[280px] rounded-full border border-white/5 animate-spin [animation-duration:50s]" />
-          <div className="absolute w-[150px] h-[150px] sm:w-[220px] sm:h-[220px] rounded-full border border-dashed border-white/10 animate-spin [animation-duration:25s] [animation-direction:reverse]" />
+          <div className="absolute w-[240px] h-[240px] sm:w-[280px] sm:h-[280px] rounded-full border border-white/5 animate-spin [animation-duration:50s]" />
+          <div className="absolute w-[180px] h-[180px] sm:w-[220px] sm:h-[220px] rounded-full border border-dashed border-white/10 animate-spin [animation-duration:25s] [animation-direction:reverse]" />
 
           {/* Central Core indicator */}
           <motion.div

@@ -148,7 +148,7 @@ export default function LinksPage() {
                 <img 
                   src="/IMG_7469.PNG" 
                   alt="Krish Mahajan"
-                  className="w-full h-full rounded-full object-cover object-top grayscale-0 sm:grayscale sm:hover:grayscale-0 transition-all duration-500"
+                  className="w-full h-full rounded-full object-cover object-top transition-all duration-500 hover:scale-110 hover:brightness-110"
                 />
               </div>
             </motion.div>

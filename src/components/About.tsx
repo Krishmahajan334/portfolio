@@ -161,7 +161,7 @@ export const About: React.FC = () => {
                     src="/IMG_7469.PNG"
                     alt="Krish Mahajan Child Scientist & CS Engineer"
                     fill
-                    className="object-cover object-top scale-100 group-hover:scale-105 group-hover:brightness-110 filter grayscale-0 group-hover:grayscale transition-all duration-700"
+                    className="object-cover object-top scale-100 group-hover:scale-105 group-hover:brightness-110 filter grayscale-0 sm:grayscale sm:group-hover:grayscale-0 transition-all duration-700"
                     sizes="(max-w-768px) 100vw, 280px"
                     priority
                   />

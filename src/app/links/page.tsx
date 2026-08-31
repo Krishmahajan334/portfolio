@@ -138,16 +138,20 @@ export default function LinksPage() {
             {/* Glowing orb behind avatar */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-cyan-500/20 blur-2xl rounded-full" />
             
-            <div className="relative w-28 h-28 mx-auto mb-6">
+            <motion.div 
+              className="relative w-28 h-28 mx-auto mb-6"
+              animate={{ y: [0, -10, 0] }}
+              transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+            >
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-emerald-500 rounded-full animate-spin-slow opacity-50 blur-md" />
               <div className="relative w-full h-full bg-[#0a0d1c] rounded-full border-2 border-cyan-500/50 p-1 flex items-center justify-center overflow-hidden shadow-[0_0_20px_rgba(34,211,238,0.3)]">
                 <img 
                   src="/IMG_7469.PNG" 
                   alt="Krish Mahajan"
-                  className="w-full h-full rounded-full object-cover object-top grayscale-0 hover:grayscale transition-all duration-500"
+                  className="w-full h-full rounded-full object-cover object-top grayscale-0 sm:grayscale sm:hover:grayscale-0 transition-all duration-500"
                 />
               </div>
-            </div>
+            </motion.div>
             
             <h1 className="text-2xl font-bold mb-4 tracking-wider text-white drop-shadow-[0_0_15px_rgba(34,211,238,0.5)]">
               Krish Mahajan
@@ -176,7 +180,7 @@ export default function LinksPage() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 * index }}
-                className="group relative flex items-center p-4 w-full bg-black/40 backdrop-blur-sm border border-white/5 rounded-lg overflow-hidden hover:border-cyan-500/50 transition-all duration-300"
+                className="group relative flex items-center p-4 w-full bg-white/5 backdrop-blur-md border border-white/10 rounded-xl overflow-hidden hover:border-cyan-500/50 hover:bg-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)] transition-all duration-300 transform hover:-translate-y-1"
               >
                 {/* Hover Gradient Background */}
                 <div className={`absolute inset-0 opacity-0 group-hover:opacity-10 bg-gradient-to-r ${link.color} transition-opacity duration-300`} />

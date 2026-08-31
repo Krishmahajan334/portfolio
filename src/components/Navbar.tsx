@@ -149,11 +149,13 @@ export const Navbar: React.FC = () => {
               HIRE ME
             </a>
 
-            <img
-              src="/assets/watermark_logo_light.png"
-              alt="Krish Mahajan Watermark"
-              className="h-8 w-auto object-contain opacity-40 select-none pointer-events-none filter drop-shadow-[0_0_6px_rgba(0,245,255,0.15)] ml-1"
-            />
+            <a href="/" className="cursor-pointer ml-1 group-hover:opacity-100 transition-opacity">
+              <img
+                src="/assets/watermark_logo_light.png"
+                alt="Krish Mahajan Watermark"
+                className="h-8 w-auto object-contain opacity-40 select-none filter drop-shadow-[0_0_6px_rgba(0,245,255,0.15)] transition-opacity hover:opacity-100"
+              />
+            </a>
           </div>
 
           {/* Mobile Menu Toggle & Watermark */}
@@ -166,11 +168,13 @@ export const Navbar: React.FC = () => {
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
 
-            <img
-              src="/assets/watermark_logo_light.png"
-              alt="Krish Mahajan Watermark"
-              className="h-7 w-auto object-contain opacity-50 select-none pointer-events-none"
-            />
+            <a href="/" className="cursor-pointer transition-opacity hover:opacity-100">
+              <img
+                src="/assets/watermark_logo_light.png"
+                alt="Krish Mahajan Watermark"
+                className="h-7 w-auto object-contain opacity-50 select-none"
+              />
+            </a>
           </div>
         </div>
 
